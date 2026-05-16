@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Animex Guatemala</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="text-white">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">ANIMEX GUATEMALA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="productos.html">Productos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4 py-lg-5">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold text-uppercase text-warning">Inventario de Figuras</h1>
+            <p class="lead">Consulta las piezas en existencia y reserva la tuya.</p>
+        </div>
+
+        <div class="table-responsive shadow mb-5">
+            <table class="table table-dark table-striped table-hover mb-0 tabla-productos">
+                <thead>
+                    <tr>
+                        <th>Serie</th>
+                        <th>Personaje</th>
+                        <th>Precio</th>
+                        <th>Estado</th>
+                        <th class="text-center">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Naruto Shippuden</td>
+                        <td>Uzumaki Naruto (Sage Mode)</td>
+                        <td>Q350.00</td>
+                        <td><span class="badge bg-success">Disponible</span></td>
+                        <td class="text-center">
+                            <button class="btn btn-warning btn-sm fw-bold" onclick="verInfo('Naruto Uzumaki', 'Q350.00', 'Disponible')">Ver Detalles</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dragon Ball Super</td>
+                        <td>Goku (Ultra Instinto)</td>
+                        <td>Q375.00</td>
+                        <td><span class="badge bg-success">Disponible</span></td>
+                        <td class="text-center">
+                            <button class="btn btn-warning btn-sm fw-bold" onclick="verInfo('Goku Ultra Instinto', 'Q375.00', 'Disponible')">Ver Detalles</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>One Piece</td>
+                        <td>Monkey D. Luffy (Gear 5)</td>
+                        <td>Q400.00</td>
+                        <td><span class="badge bg-danger">Agotado</span></td>
+                        <td class="text-center">
+                            <button class="btn btn-warning btn-sm fw-bold" onclick="verInfo('Luffy Gear 5', 'Q400.00', 'Agotado')">Ver Detalles</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="my-5">
+            <h2 class="h3 fw-bold text-warning text-uppercase mb-4 text-center">Preguntas Frecuentes</h2>
+            <div class="accordion accordion-flush shadow rounded" id="acordeonPreguntas">
+                <div class="accordion-item bg-secondary text-white">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#pregunta1">
+                            ¿Hacen envíos a todos los departamentos?
+                        </button>
+                    </h2>
+                    <div id="pregunta1" class="accordion-collapse collapse" data-bs-parent="#acordeonPreguntas">
+                        <div class="accordion-body">
+                            Sí, realizamos envíos seguros a toda Guatemala por medio de agencias de carga locales confiables directamente hasta tu domicilio.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-secondary text-white">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#pregunta2">
+                            ¿Cuáles son los métodos de pago?
+                        </button>
+                    </h2>
+                    <div id="pregunta2" class="accordion-collapse collapse" data-bs-parent="#acordeonPreguntas">
+                        <div class="accordion-body">
+                            Aceptamos transferencia bancaria, depósito monetario y pago en efectivo al momento de recibir tu figura si te encuentras en el perímetro de la ciudad.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalDetalles" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title fw-bold text-warning" id="modalTitulo">Detalles del Producto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Figura:</strong> <span id="detallesNombre"></span></p>
+                    <p><strong>Precio Estimado:</strong> <span id="detallesPrecio"></span></p>
+                    <p><strong>Disponibilidad:</strong> <span id="detallesEstado"></span></p>
+                    <p class="mb-0 mt-3 text-light text-opacity-75">Las piezas son originales y vienen en sus cajas de fábrica debidamente selladas.</p>
+                </div>
+                <div class="modal-footer border-top border-secondary">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-danger text-white text-center py-3 mt-auto">
+        <div class="container">
+            <p class="mb-0 fs-7">&copy; 2026 Animex Guatemala - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/funciones.js"></script>
+</body>
+</html>
